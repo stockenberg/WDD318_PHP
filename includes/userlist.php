@@ -1,5 +1,5 @@
 <?php if(!empty($users)) : ?>
-    <ul>
+    <ul class="users">
         <?php foreach ($users as $user) : ?>
             <li><?= $user ?></li>
         <?php endforeach; ?>

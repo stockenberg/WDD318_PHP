@@ -6,13 +6,15 @@ $string2 = 'String';
 $float = 2.23;
 $int = 2;
 
+$bool = true;
+$null = null;
+
 $arr = array("key" => "value");
 
-$arr = [5 => "Value"];
-
+$arr = [5 => "Value", "key" => "Value"];
 $arr = [1,2,3,4,5,6,7,8];
-
 $arr[5]; // 6
+
 
 $arr = [
     0 => [
@@ -41,7 +43,5 @@ $null = null;
 
 $bool = $null;
 var_dump($bool);
-
-
 
 ?>

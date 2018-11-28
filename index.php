@@ -1,11 +1,10 @@
 <?php
 
-require_once 'classes/Home.php';
+require_once 'classes/Status.php';
 
-$home = new Home();
-echo "<pre>";
-print_r($home);
-echo $home->property;
-echo $home->generateMeta();
-echo "</pre>";
-exit();
+$status = new Status();
+
+$status2 = new Status(5);
+
+echo $status->printEntryCount();
+echo $status2->printEntryCount();

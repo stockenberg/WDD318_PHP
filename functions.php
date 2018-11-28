@@ -7,7 +7,7 @@
  * @param mixed ...$test
  * @return String
  */
-function myFunction (String $string, Int $int = 2, ...$test) : String
+function myFunction (String $string, Int $int = 2, array ...$test) : String
 {
 
     print_r($test);

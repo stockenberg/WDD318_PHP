@@ -1,7 +1,7 @@
 <?php
 
 
-if (true) {
+if (true && false || null) {
 
 } elseif (false) {
 
@@ -29,4 +29,4 @@ try{
     echo $e->getMessage();
 }
 
-$ternary = (false) ? 'Hallo' : 'Tschüss';
+$ternary = (true) ? 'Hallo' : 'Tschüss';
