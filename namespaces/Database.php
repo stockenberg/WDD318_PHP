@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-namespace namespaces\database;
+namespace namespaces\Database;
 
 
 class Database
