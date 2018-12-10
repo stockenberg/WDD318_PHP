@@ -6,7 +6,7 @@
  * Time: 11:25
  */
 
-namespace app\controller;
+namespace app\controllers;
 
 
 class ContactController

@@ -28,5 +28,14 @@ $app->run();
         <a href="?page=contact">Contact</a>
     </nav>
     <h2>Hallo Website</h2>
+    <ul>
+        <?php
+        /**
+         * @var \app\dtos\News $news
+         */
+        foreach ($app->data as $key => $news) : ?>
+            <li><?= $news->getHeadline(); ?> <br> <?= $news->getContent() ?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>

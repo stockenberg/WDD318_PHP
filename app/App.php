@@ -8,12 +8,13 @@
 
 namespace app;
 
-use app\controller\AboutController;
-use app\controller\ContactController;
-use app\controller\HomeController;
+use app\controllers\AboutController;
+use app\controllers\ContactController;
+use app\controllers\HomeController;
 
 class App
 {
+    public $data;
 
     public function run()
     {
@@ -25,6 +26,7 @@ class App
         switch ($page){
             case 'home':
                 $home = new HomeController();
+                $this->data = $home->run();
                 break;
 
             case 'about':
@@ -33,6 +35,7 @@ class App
 
             case 'contact':
                 $contact = new ContactController();
+                $contact->run();
                 break;
         }
 
