@@ -8,7 +8,6 @@
 
 namespace app\controllers;
 
-
 class AboutController
 {
     public function __construct()

@@ -10,6 +10,7 @@ require_once "vendor/autoload.php";
 
 $app = new \app\App();
 $app->run();
+
 ?>
 
 <!doctype html>
@@ -22,20 +23,16 @@ $app->run();
     <title>Document</title>
 </head>
 <body>
+
     <nav>
-        <a href="?page=home">Home</a>
-        <a href="?page=about">About</a>
-        <a href="?page=contact">Contact</a>
+        <a href="?p=home">Home</a>
+        <a href="?p=about">About</a>
+        <a href="?p=contact">Contact</a>
     </nav>
-    <h2>Hallo Website</h2>
+
     <ul>
-        <?php
-        /**
-         * @var \app\dtos\News $news
-         */
-        foreach ($app->data as $key => $news) : ?>
-            <li><?= $news->getHeadline(); ?> <br> <?= $news->getContent() ?></li>
-        <?php endforeach; ?>
+
     </ul>
+    <?php $app->includePage(); ?>
 </body>
 </html>

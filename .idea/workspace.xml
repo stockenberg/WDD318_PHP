@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7ab971f-aefb-4a0f-b22e-6f132ad0276c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/dtos/News.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WDD_318.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WDD_318.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/dtos/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/GetHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/Router.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers/Status.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/interfaces/GetHelperInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/about.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/App.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/App.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/AboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AboutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ContactController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,6 +26,20 @@
   <component name="ComposerSettings">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="1" />
     <option name="PRINT_LINE_NUMBERS" value="true" />
@@ -32,27 +49,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="uml://PHP/\app\models\News">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>PHP</ID>
-              <OriginalElement>\app\models\News</OriginalElement>
-              <nodes>
-                <node x="580.0" y="0.0">\app\models\News</node>
-                <node x="407.0" y="0.0">\app\App</node>
-                <node x="0.0" y="0.0">\app\dtos\News</node>
-                <node x="0.0" y="586.0">\app\controllers\HomeController</node>
-              </nodes>
-              <notes />
-              <edges />
-              <settings layout="Hierarchic Group" zoom="1.0" x="119.5" y="117.0" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Constants</Category>
-                <Category>Methods</Category>
-                <Category>Fields</Category>
-              </Categories>
-              <VISIBILITY>private</VISIBILITY>
+        <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="553">
+              <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+              <folding>
+                <element signature="e#122#140#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,10 +66,14 @@
     <findStrings>
       <find>spl_autoload_register</find>
       <find>public</find>
+      <find>$_GET[self::PAGE_PARAM]</find>
+      <find>$_POST</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>private</replace>
+      <replace>$pageParam</replace>
+      <replace>$$post</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/autoloading/vendor/composer</dir>
@@ -101,13 +108,22 @@
         <option value="$PROJECT_DIR$/app/controller/AboutController.php" />
         <option value="$PROJECT_DIR$/app/controller/ContactController.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/controllers/AboutController.php" />
-        <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
         <option value="$PROJECT_DIR$/app/controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/App.php" />
         <option value="$PROJECT_DIR$/app/dtos/News.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/app/models/News.php" />
+        <option value="$PROJECT_DIR$/app/controllers/AboutController.php" />
+        <option value="$PROJECT_DIR$/pages/about.php" />
+        <option value="$PROJECT_DIR$/pages/home.php" />
+        <option value="$PROJECT_DIR$/pages/404.php" />
+        <option value="$PROJECT_DIR$/app/interfaces/GetHelperInterface.php" />
+        <option value="$PROJECT_DIR$/app/helpers/GetHelper.php" />
+        <option value="$PROJECT_DIR$/app/App.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/app/helpers/Router.php" />
+        <option value="$PROJECT_DIR$/app/dtos/User.php" />
+        <option value="$PROJECT_DIR$/app/helpers/Status.php" />
+        <option value="$PROJECT_DIR$/pages/contact.php" />
+        <option value="$PROJECT_DIR$/app/controllers/ContactController.php" />
       </list>
     </option>
   </component>
@@ -130,6 +146,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,13 +175,22 @@
               <item name="WDD_318" type="b2602c69:ProjectViewProjectNode" />
               <item name="WDD_318" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WDD_318" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WDD_318" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WDD_318" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WDD_318" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -174,6 +200,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../MVC-Anwendungsfluss" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="COPY_ALWAYS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -215,7 +243,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20477000" />
+    <option name="totallyTimeSpent" value="27845000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-32" width="1920" height="1112" extended-state="6" />
@@ -325,13 +353,6 @@
     <entry file="file://$PROJECT_DIR$/autoloading/App.php" />
     <entry file="file://$PROJECT_DIR$/autoloading/index.php" />
     <entry file="file://$PROJECT_DIR$/autoloading/composer.json" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -339,52 +360,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/AboutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/dtos/News.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/News.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -401,14 +380,136 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="119.5" y="117.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="120.0" y="117.0" />
           <SelectedNodes />
           <Categories>
+            <Category>Fields</Category>
             <Category>Constants</Category>
             <Category>Methods</Category>
-            <Category>Fields</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/AboutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/News.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/interfaces/GetHelperInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="785">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/GetHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="19" column="52" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="30" column="36" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="36" />
+          <folding>
+            <element signature="e#6#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+          <folding>
+            <element signature="e#118#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/dtos/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="737">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/Status.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="13" column="12" lean-forward="true" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/ContactController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="38" column="38" selection-start-line="38" selection-start-column="38" selection-end-line="38" selection-end-column="38" />
+          <folding>
+            <element signature="e#122#140#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

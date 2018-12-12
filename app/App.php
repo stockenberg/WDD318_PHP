@@ -11,36 +11,38 @@ namespace app;
 use app\controllers\AboutController;
 use app\controllers\ContactController;
 use app\controllers\HomeController;
+use app\helpers\GetHelper;
+use app\helpers\Router;
 
 class App
 {
     public $data;
+    public $pageName;
 
     public function run()
     {
-        echo "PHP läuft";
 
-        $page = $_GET['page'];
+        $this->pageName = GetHelper::getValidatedPage($_GET['p'] ?? null);
 
-        // routing
-        switch ($page){
-            case 'home':
-                $home = new HomeController();
-                $this->data = $home->run();
-                break;
+        /**
+         * Redirects the Get request to Controllers and returns data if data is returned
+         * @var data
+         */
+        $this->data = Router::run();
 
-            case 'about':
-                $about = new AboutController();
-                break;
-
-            case 'contact':
-                $contact = new ContactController();
-                $contact->run();
-                break;
-        }
 
     }
 
 
+
+    public function includePage()
+    {
+        if(file_exists($this->pageName)){
+            require_once $this->pageName;
+        }else{
+            // TODO : clean this up
+            require_once "pages/404.php";
+        }
+    }
     
 }
