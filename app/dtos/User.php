@@ -13,6 +13,7 @@ class User
 {
     private $firstname;
     private $lastname;
+    private $email;
 
     /**
      * @return mixed
@@ -45,6 +46,24 @@ class User
     {
         $this->lastname = $lastname;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
+    {
+        $this->email = $email;
+    }
+
+
 
 
 }

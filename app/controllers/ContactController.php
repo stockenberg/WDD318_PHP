@@ -9,9 +9,6 @@
 namespace app\controllers;
 
 
-use app\dtos\User;
-use app\helpers\Status;
-
 class ContactController
 {
 
@@ -19,32 +16,14 @@ class ContactController
     {
         switch ($_GET['action'] ?? null){
             case 'sayHello':
-                print_r($this->validateContactForm($_POST));
+                // print_r($this->validateContactForm($_POST));
                 break;
         }
     }
 
-    public function validateContactForm(array $post) : User
-    {
-
-        $user = new User();
-
-        if(!empty($post)){
-            if(empty($post['firstname'])){
-                Status::setStatus('firstname', 'Deine Eingabe ist Leer');
-            }else {
-                $user->setFirstname($post['firstname']);
-            }
-
-            if(empty($post['lastname'])){
-                Status::setStatus('lastname', 'Deine EIngabe ist leer');
-            }else{
-                $user->setLastname($post['lastname']);
-            }
-        }
-
-        return $user;
-    }
+    /*
+     * Contact Validation deleted @18.12.18
+     */
     
     public function __construct()
     {

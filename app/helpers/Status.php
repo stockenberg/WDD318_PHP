@@ -15,7 +15,8 @@ class Status
     private static $status = [];
 
     /**
-     * @return array
+     * @param $key
+     * @return mixed|null
      */
     public static function getStatus($key)
     {
@@ -23,13 +24,23 @@ class Status
     }
 
     /**
-     * @param array $status
+     * @param $key
+     * @param $value
      */
     public static function setStatus($key, $value): void
     {
         self::$status[$key] = $value;
     }
 
-
+    /**
+     * @return bool
+     */
+    public static function hasErrors() : bool
+    {
+        if(!empty(self::$status)){
+            return true;
+        }
+        return false;
+    }
 
 }

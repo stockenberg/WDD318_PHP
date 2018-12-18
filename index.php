@@ -8,9 +8,16 @@
 
 require_once "vendor/autoload.php";
 
+
+
+$whoops = new Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+$whoops->register();
+
 $app = new \app\App();
 $app->run();
 
+\Kint\Kint::dump($_GET, $_POST);
 ?>
 
 <!doctype html>

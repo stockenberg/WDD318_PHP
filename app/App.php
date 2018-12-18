@@ -13,6 +13,7 @@ use app\controllers\ContactController;
 use app\controllers\HomeController;
 use app\helpers\GetHelper;
 use app\helpers\Router;
+use app\models\User;
 
 class App
 {
@@ -22,14 +23,13 @@ class App
     public function run()
     {
 
-        $this->pageName = GetHelper::getValidatedPage($_GET['p'] ?? null);
+        $this->pageName = GetHelper::getValidatedPage($_GET['p']);
 
         /**
          * Redirects the Get request to Controllers and returns data if data is returned
          * @var data
          */
         $this->data = Router::run();
-
 
     }
 

@@ -11,6 +11,7 @@ namespace app\helpers;
 
 use app\controllers\ContactController;
 use app\controllers\HomeController;
+use app\controllers\UserController;
 
 class Router
 {
@@ -31,6 +32,11 @@ class Router
             case 'contact':
                 $contact = new ContactController();
                 $contact->run();
+                break;
+
+            case 'manage_users':
+                $user = new UserController();
+                $user->run();
                 break;
 
             default:
