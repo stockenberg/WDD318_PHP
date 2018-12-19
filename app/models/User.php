@@ -8,29 +8,6 @@
 
 namespace app\models;
 
-/*
- *
- *
-SELECT * FROM users ORDER BY id DESC;
-
-DELETE FROM users WHERE id = 1
-
-KEYWORD + SYNTAX TABLENAME (CONDITIONS) (MODIFICATION)
-
-INSERT INTO users
-(firstname, lastname, email, created_at)
-VALUES
-('Marten', 'Stockenberg', 'email@test.de', 12-18-2018);
-
-
-UPDATE users SET firstname = Hallo WHERE id = 1
-
-
-CONNECTION(PHP + DB STATEMENT) == SPEICHERN
-
- *
- */
-
 class User
 {
 
