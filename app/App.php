@@ -33,7 +33,11 @@ class App
 
     }
 
-
+    public static function redirect($page)
+    {
+        header('Location: ?p=' . $page);
+        exit();
+    }
 
     public function includePage()
     {

@@ -8,6 +8,9 @@
 
 require_once "vendor/autoload.php";
 
+// TODO : find a better spot for it
+session_name('wdd318');
+session_start();
 
 
 $whoops = new Whoops\Run;
@@ -17,7 +20,7 @@ $whoops->register();
 $app = new \app\App();
 $app->run();
 
-\Kint\Kint::dump($_GET, $_POST);
+\Kint\Kint::dump($_GET, $_POST, $_SESSION);
 ?>
 
 <!doctype html>
@@ -31,10 +34,19 @@ $app->run();
 </head>
 <body>
 
+    <?php if(\app\models\Auth::isLoggedIn()): ?>
+        <h2>Du bist eingeloggt</h2>
+    <?php endif; ?>
     <nav>
         <a href="?p=home">Home</a>
         <a href="?p=about">About</a>
         <a href="?p=contact">Contact</a>
+
+        <?php if(\app\models\Auth::isLoggedIn()): ?>
+            <a href="?p=login&action=logout">Logout</a>
+        <?php else:  ?>
+            <a href="?p=login">Login</a>
+        <?php endif; ?>
     </nav>
 
     <ul>

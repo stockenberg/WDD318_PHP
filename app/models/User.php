@@ -8,15 +8,12 @@
 
 namespace app\models;
 
+use app\traits\Database;
+
 class User
 {
 
-    public function connect()
-    {
-        $db = new \PDO('mysql:host=localhost;dbname=wdd318;charset=utf8',
-            'homestead', 'secret');
-        return $db;
-    }
+    use Database;
 
     public function save(\app\dtos\User $user) : bool
     {

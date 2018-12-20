@@ -6,11 +6,15 @@
  * Time: 13:41
  */
 
+namespace app\traits;
+
 trait Database {
 
-    public function getConnection()
+    public function connect()
     {
-        return "connected";
+        $db = new \PDO('mysql:host=localhost;dbname=wdd318;charset=utf8',
+            'homestead', 'secret');
+        return $db;
     }
 
 }

@@ -11,6 +11,7 @@ namespace app\helpers;
 
 use app\controllers\ContactController;
 use app\controllers\HomeController;
+use app\controllers\LoginController;
 use app\controllers\UserController;
 
 class Router
@@ -38,6 +39,14 @@ class Router
                 $user = new UserController();
                 $user->run();
                 break;
+
+            case 'login':
+                $login = new LoginController();
+                $login->run();
+                break;
+
+
+
 
             default:
                 echo "whatever";

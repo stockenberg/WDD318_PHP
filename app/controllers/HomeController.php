@@ -21,6 +21,6 @@ class HomeController
     public function run()
     {
         $model = new News();
-        return $model->getAllNews();
+        // return $model->getAllNews();
     }
 }

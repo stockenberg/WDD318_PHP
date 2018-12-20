@@ -17,7 +17,7 @@ class GetHelper implements GetHelperInterface
      * Config
      */
     const HOME_PAGE = "home";
-    const WHITE_LIST = ['about', 'home', 'contact', 'manage_users'];
+    const WHITE_LIST = ['about', 'home', 'contact', 'manage_users', 'login'];
     const ERROR_PAGE = "404";
     const PATH = "pages/";
     const EXT = ".php";

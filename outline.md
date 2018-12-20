@@ -1,7 +1,6 @@
 User
 - Roles
 
-
 Produkte
 - CRUD
 - Kategorien
@@ -16,3 +15,8 @@ Login
 Register
 Passwort vergessen ? 
 
+
+- Fragestellung: 
+Wie kann ich einen 
+Status über mehrere Request aufrecht erhalten und nur dann löschen wenn ich ihn ausgegeben habe?
+-> Session flash

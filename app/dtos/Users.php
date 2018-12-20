@@ -2,12 +2,10 @@
 
 namespace app\dtos;
 
-class Users {
+class Users extends Auth {
 
   private $id;
-  private $username;
   private $email;
-  private $password;
   private $created_at;
   private $updated_at;
   private $roles_id;
@@ -22,30 +20,12 @@ class Users {
   }
 
 
-  public function getUsername() {
-    return $this->username;
-  }
-
-  public function setUsername($username) {
-    $this->username = $username;
-  }
-
-
   public function getEmail() {
     return $this->email;
   }
 
   public function setEmail($email) {
     $this->email = $email;
-  }
-
-
-  public function getPassword() {
-    return $this->password;
-  }
-
-  public function setPassword($password) {
-    $this->password = $password;
   }
 
 
@@ -57,7 +37,6 @@ class Users {
     $this->created_at = $created_at;
   }
 
-
   public function getUpdatedAt() {
     return $this->updated_at;
   }
@@ -65,7 +44,6 @@ class Users {
   public function setUpdatedAt($updated_at) {
     $this->updated_at = $updated_at;
   }
-
 
   public function getRolesId() {
     return $this->roles_id;
