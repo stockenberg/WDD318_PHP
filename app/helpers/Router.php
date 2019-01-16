@@ -26,10 +26,6 @@ class Router
                 return $home->run();
                 break;
 
-            case 'about':
-                return "about logic";
-                break;
-
             case 'contact':
                 $contact = new ContactController();
                 $contact->run();
@@ -37,20 +33,14 @@ class Router
 
             case 'manage_users':
                 $user = new UserController();
-                $user->run();
+                return $user->run();
                 break;
 
             case 'login':
                 $login = new LoginController();
-                $login->run();
+                return $login->run();
                 break;
 
-
-
-
-            default:
-                echo "whatever";
-                break;
 
         }
     }

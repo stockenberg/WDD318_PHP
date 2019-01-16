@@ -12,6 +12,6 @@ class AboutController
 {
     public function __construct()
     {
-        echo "das ist die About page";
+        //echo "das ist die About page";
     }
 }

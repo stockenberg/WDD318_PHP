@@ -17,7 +17,15 @@ class GetHelper implements GetHelperInterface
      * Config
      */
     const HOME_PAGE = "home";
-    const WHITE_LIST = ['about', 'home', 'contact', 'manage_users', 'login'];
+    const WHITE_LIST = [
+        'public' => [
+            'about' => 'About Page',
+            'home' => 'Home Page',
+            'contact' => 'Contact Page',
+            'login' => 'Login Page'
+        ],
+        'logged_in' => ['manage_users' => 'User Management']
+    ];
     const ERROR_PAGE = "404";
     const PATH = "pages/";
     const EXT = ".php";
@@ -32,7 +40,10 @@ class GetHelper implements GetHelperInterface
     {
         if (isset($pageParam)) {
             if (!empty($pageParam)) {
-                if(in_array($pageParam, self::WHITE_LIST)){
+                if(
+                    array_key_exists($pageParam, self::WHITE_LIST['public'])
+                    || array_key_exists($pageParam, self::WHITE_LIST['logged_in'])
+                ) {
                     return self::PATH . $pageParam . self::EXT;
                 }
                 return self::PATH . self::ERROR_PAGE . self::EXT;

@@ -9,6 +9,8 @@
 namespace app\controllers;
 
 
+use app\helpers\Security;
+
 class ContactController
 {
 
@@ -27,6 +29,6 @@ class ContactController
     
     public function __construct()
     {
-        echo "das ist die contact page";
+       // echo "das ist die contact page";
     }
 }

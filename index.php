@@ -20,9 +20,7 @@ $whoops->register();
 $app = new \app\App();
 $app->run();
 
-\Kint\Kint::dump($_GET, $_POST, $_SESSION);
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,28 +28,66 @@ $app->run();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <!--     BUG : check local asset loading - wtf.. -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
 
-    <?php if(\app\models\Auth::isLoggedIn()): ?>
-        <h2>Du bist eingeloggt</h2>
-    <?php endif; ?>
-    <nav>
-        <a href="?p=home">Home</a>
-        <a href="?p=about">About</a>
-        <a href="?p=contact">Contact</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <?php if(\app\models\Auth::isLoggedIn()): ?>
-            <a href="?p=login&action=logout">Logout</a>
-        <?php else:  ?>
-            <a href="?p=login">Login</a>
-        <?php endif; ?>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
 
-    <ul>
+            <?php foreach (\app\helpers\GetHelper::WHITE_LIST['public'] as $param => $niceName) : ?>
+                <li class="nav-item <?= (($_GET['p'] ?? null) === $param) ? 'active' : '' ?>">
+                    <a class="nav-link" href="?p=<?= $param ?>"><?= $niceName ?></a>
+                </li>
+            <?php endforeach; ?>
 
-    </ul>
-    <?php $app->includePage(); ?>
+            <?php if(\app\models\Auth::isLoggedIn()): ?>
+
+                <?php foreach (\app\helpers\GetHelper::WHITE_LIST['logged_in'] as $param => $niceName) : ?>
+                    <li class="nav-item <?= (($_GET['p'] ?? null) === $param) ? 'active' : '' ?>">
+                        <a class="nav-link" href="?p=<?= $param ?>"><?= $niceName ?></a>
+                    </li>
+                <?php endforeach; ?>
+
+                <li class="nav-item <?= (($_GET['p'] ?? null) === 'login') ? 'active' : '' ?>">
+                    <a class="nav-link" href="?p=login&action=logout">Logout</a>
+                </li>
+
+            <?php else:  ?>
+                <li class="nav-item <?= (($_GET['p'] ?? null) === 'login') ? 'active' : '' ?>">
+                    <a class="nav-link" href="?p=login">Login</a>
+                </li>
+            <?php endif; ?>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<main role="main" class="container">
+    <div class="row">
+    <?php require $app->includePage(); ?>
+    </div>
+</main><!-- /.container -->
+
 </body>
 </html>

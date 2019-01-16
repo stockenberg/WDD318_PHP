@@ -12,6 +12,7 @@ namespace app\controllers;
 use app\App;
 use app\dtos\Auth;
 use app\dtos\Users;
+use app\helpers\Security;
 use app\helpers\Status;
 
 class LoginController
@@ -27,6 +28,7 @@ class LoginController
         switch ($_GET['action'] ?? null){
 
             case 'logout':
+
                 session_destroy();
                 App::redirect('home');
                 break;

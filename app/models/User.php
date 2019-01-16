@@ -8,6 +8,7 @@
 
 namespace app\models;
 
+use app\dtos\Users;
 use app\traits\Database;
 
 class User
@@ -15,7 +16,7 @@ class User
 
     use Database;
 
-    public function save(\app\dtos\User $user) : bool
+    public function save(\app\dtos\Users $user) : bool
     {
         $sql = 'INSERT INTO users 
                 (firstname, lastname, email, created_at) 
@@ -31,6 +32,17 @@ class User
            ':email' => $user->getEmail(),
            ':created_at' => date('Y-m-d H:i:s', time())
         ]);
+    }
+
+    public function getAllUsers() : array  {
+        $sql = 'SELECT * FROM users';
+
+        $db = $this->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        $data = $stmt->fetchAll(\PDO::FETCH_CLASS, Users::class);
+        return $data;
     }
 }
 

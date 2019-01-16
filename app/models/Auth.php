@@ -51,6 +51,7 @@ class Auth
         return $res[0] ?? false;
     }
 
+//    TODO : move this function away from model namespace
     public static function isLoggedIn()
     {
         if (isset($_SESSION['auth'])) {
