@@ -27,11 +27,11 @@
                 <td><?= $user->getFirstname() ?></td>
                 <td><?= $user->getLastname() ?></td>
                 <td><?= $user->getEmail() ?></td>
-                <td><?= $user->getRolesId() ?></td>
+                <td><?= $user->getRole() ?></td>
                 <td><?= $user->getCreatedAt() ?></td>
                 <td>
-                    <a href="?p=manage_user&action=edit&id=<?= $user->getId() ?>" type="button" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                    <a href="?p=manage_user&action=delete&id=<?= $user->getId() ?>" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                    <a href="?p=manage_users&action=edit&id=<?= $user->getId() ?>" type="button" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                    <a href="?p=manage_users&action=delete&id=<?= $user->getId() ?>" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>

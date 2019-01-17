@@ -9,6 +9,7 @@
 namespace app\helpers;
 
 
+use app\App;
 use app\controllers\ContactController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
@@ -32,6 +33,11 @@ class Router
                 break;
 
             case 'manage_users':
+                $user = new UserController();
+                return $user->run();
+                break;
+
+            case 'create_users':
                 $user = new UserController();
                 return $user->run();
                 break;

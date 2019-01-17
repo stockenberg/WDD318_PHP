@@ -2,6 +2,8 @@
 
 namespace app\dtos;
 
+use app\models\Role;
+
 class Users {
 
   private $id;
@@ -10,7 +12,7 @@ class Users {
   private $firstname;
   private $lastname;
   private $updated_at;
-  private $roles_id;
+  private $role_id;
   private $password;
   private $created_at;
 
@@ -69,12 +71,17 @@ class Users {
   }
 
 
-  public function getRolesId() {
-    return $this->roles_id;
+  public function getRoleId() {
+    return $this->role_id;
   }
 
-  public function setRolesId($roles_id) {
-    $this->roles_id = $roles_id;
+  public function getRole()
+  {
+      return Role::getRoleNameById($this->getRoleId());
+  }
+
+  public function setRoleId($roles_id) {
+    $this->role_id = $roles_id;
   }
 
 
@@ -83,7 +90,7 @@ class Users {
   }
 
   public function setPassword($password) {
-    $this->password = $password;
+    $this->password = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
   }
 
 

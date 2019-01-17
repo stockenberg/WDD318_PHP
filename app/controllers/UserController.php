@@ -9,10 +9,11 @@
 namespace app\controllers;
 
 
-use app\dtos\User;
+use app\App;
 use app\dtos\Users;
 use app\helpers\Security;
 use app\helpers\Status;
+use app\models\User;
 
 class UserController
 {
@@ -23,18 +24,31 @@ class UserController
         switch ($_GET['action'] ?? null) {
 
             // do stuff
-            case 'save':
 
-                /** @param User|bool $user */
+            case 'create':
+
+              break;
+
+            case 'delete':
+                $user = new User();
+                if($user->destroy($_GET['id'])){
+                    App::redirect('manage_users');
+                }
+                break;
+
+            case 'store':
+
+                /** @param Users|bool $user */
                 $userObj = $this->validate($_POST ?? []);
 
                 if ($userObj) {
                     $user = new \app\models\User();
+
                     if ($user->save($userObj)) {
-                        header('Location: ?p=manage_users');
-                        exit();
+                        App::redirect('manage_users');
                     }
                 }
+
                 // 1.1 generate error messages
                 // 2. Submit Data
                 break;
@@ -51,30 +65,55 @@ class UserController
      * if empty = false
      * if !empty User Object
      * @param array $post
-     * @return User|bool
+     * @return Users|bool
      */
     private function validate(array $post)
     {
-        // TODO : Fix broken user
         $user = new Users();
         if (!empty($post)) {
+
+            if ($post['username'] !== '') {
+                $user->setUsername($post['username']);
+            } else {
+                Status::setStatus('username', 'Bitte fülle den Benutzernamen aus');
+            }
+
             if ($post['firstname'] !== '') {
                 $user->setFirstname($post['firstname']);
             } else {
-                Status::setStatus('firstname', 'Bitte fülle deinen Vornamen aus');
+                Status::setStatus('firstname', 'Bitte fülle den Vornamen aus');
             }
 
             if ($post['lastname'] !== '') {
                 $user->setLastname($post['lastname']);
             } else {
-                Status::setStatus('lastname', 'Bitte fülle deinen Nachnamen aus');
+                Status::setStatus('lastname', 'Bitte fülle den Nachnamen aus');
             }
 
             if ($post['email'] !== '') {
-                $user->setEmail($post['email']);
-                // TODO : do a more complex email validation duddde;
+                if(filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
+                    $user->setEmail($post['email']);
+                }else{
+                    Status::setStatus('email', 'Deine E-Mail-Adresse ist nicht korrekt');
+                }
             } else {
                 Status::setStatus('email', 'Bitte fülle deine Email-Adresse aus');
+            }
+
+            if($post['password'] !== '' AND $post['password_retyped'] !== ''){
+                if($post['password'] === $post['password_retyped']){
+                    $user->setPassword($post['password']);
+                }else{
+                    Status::setStatus('password', 'Deine Passwörter stimmen nicht überein');
+                }
+            }else{
+                Status::setStatus('password', 'Bitte gib dein Passwort erneut ein');
+            }
+
+            if ($post['role_id']!== '') {
+                $user->setRoleId($post['role_id']);
+            } else {
+                Status::setStatus('role_id', 'Bitte wähle eine Rechtestufe');
             }
         }
 

@@ -1,21 +1,31 @@
-<form action="?p=manage_users&action=save" method="post">
-    <div>
-        <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" value="<?= $_POST['firstname'] ?? null ?>">
-        <p class="error"><?= \app\helpers\Status::getStatus('firstname') ?></p>
+<h2>Neuen Benutzer hinzufügen</h2>
+<form action="?p=create_users&action=store" method="post" id="userAdd">
+
+    <?php foreach (\app\models\User::$inputFields as $key => $field) : ?>
+    <div class="form-group">
+        <label for="<?= $key ?>"><?= $field['label'] ?></label>
+        <input class="form-control" type="<?= $field['type'] ?>" name="<?= $key ?>" id="<?= $key ?>" value="<?= $_POST[$key] ?? null ?>">
+        <p class="alert-danger"><?= \app\helpers\Status::getStatus($key) ?></p>
     </div>
 
-    <div>
-        <label for="lastname">Lastname</label>
-        <input type="text" name="lastname" value="<?= $_POST['lastname'] ?? null ?>">
-        <p class="error"><?= \app\helpers\Status::getStatus('lastname') ?></p>
+    <?php endforeach; ?>
+
+    <div class="form-group">
+        <label for="role_id">Rechtestufe wählen</label>
+        <select name="role_id" class="form-control" id="role_id">
+            <option selected>Bitte wählen</option>
+            <?php
+
+            /** @var \app\dtos\Roles $role */
+            foreach (\app\models\Role::getAll() as $key => $role) : ?>
+                <option value="<?= $role->getId(); ?>"><?= ucfirst($role->getValue()); ?></option>
+            <?php endforeach; ?>
+
+        </select>
+        <p class="alert-danger"><?= \app\helpers\Status::getStatus('role_id') ?></p>
+
     </div>
 
-    <div>
-        <label for="email">email</label>
-        <input type="text" name="email" value="<?= $_POST['email'] ?? null ?>">
-        <p class="error"><?= \app\helpers\Status::getStatus('email') ?></p>
-    </div>
 
-    <button type="submit">submit</button>
+    <button type="submit" class="btn btn-success">Speichern</button>
 </form>

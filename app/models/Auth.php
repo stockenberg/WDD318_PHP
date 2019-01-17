@@ -42,8 +42,8 @@ class Auth
 
     private function getUserByUsername(String $username)
     {
-        $sql = 'SELECT username, email, password, roles_id FROM users WHERE username = :username';
-        $db = $this->connect();
+        $sql = 'SELECT username, email, password, role_id FROM users WHERE username = :username';
+        $db = Database::connect();
         $stmt = $db->prepare($sql);
         $stmt->execute([':username' => $username]);
 

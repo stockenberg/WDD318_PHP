@@ -14,35 +14,55 @@ use app\traits\Database;
 class User
 {
 
+    public static $inputFields = [
+        'username' => ['type' => 'text', 'label' => 'Benutzername'],
+        'firstname' => ['type' => 'text', 'label' => 'Vorname'],
+        'lastname' => ['type' => 'text', 'label' => 'Nachname'],
+        'email' => ['type' => 'email', 'label' => 'E-Mail-Adresse'],
+        'password' => ['type' => 'password', 'label' => 'Passwort'],
+        'password_retyped' => ['type' => 'password', 'label' => 'Passwort erneut eingeben']
+    ];
+
     use Database;
 
-    public function save(\app\dtos\Users $user) : bool
+    public function save(Users $user) : bool
     {
         $sql = 'INSERT INTO users 
-                (firstname, lastname, email, created_at) 
+                (username, firstname, lastname, email, password, created_at, role_id) 
                 VALUES 
-                (:firstname, :lastname, :email, :created_at)';
+                (:username, :firstname, :lastname, :email, :password, :created_at, :role_id)';
 
-        $db = $this->connect();
+        $db = Database::connect();
 
         $stmt = $db->prepare($sql);
         return $stmt->execute([
+           ':username' => $user->getUsername(),
            ':firstname' => $user->getFirstname(),
            ':lastname' => $user->getLastname(),
            ':email' => $user->getEmail(),
-           ':created_at' => date('Y-m-d H:i:s', time())
+           ':password' => $user->getPassword(),
+           ':created_at' => date('Y-m-d H:i:s', time()),
+           ':role_id' => $user->getRoleId()
         ]);
     }
 
     public function getAllUsers() : array  {
-        $sql = 'SELECT * FROM users';
+        $sql = 'SELECT * FROM users WHERE username != "root" ';
 
-        $db = $this->connect();
+        $db = Database::connect();
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
         $data = $stmt->fetchAll(\PDO::FETCH_CLASS, Users::class);
         return $data;
+    }
+
+    public function destroy(Int $id)
+    {
+        $sql = 'DELETE FROM users WHERE id = :id';
+        $db = Database::connect();
+        $stmt = $db->prepare($sql);
+        return $stmt->execute([':id' => $id]);
     }
 }
 

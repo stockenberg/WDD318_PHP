@@ -10,12 +10,11 @@ namespace app\helpers;
 
 
 use app\App;
-use app\models\Role;
 
 class Security
 {
 
-    public static function allow($userRoles = null)
+    public static function allow(array $userRoles = null, String $to = 'home')
     {
        if(isset($_SESSION['auth'])){
            if($_SESSION['auth']['role_id']){
@@ -24,7 +23,7 @@ class Security
                }
            }
        }
-       App::redirect('home');
+       App::redirect($to);
     }
     
 }

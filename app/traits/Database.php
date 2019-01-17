@@ -10,7 +10,7 @@ namespace app\traits;
 
 trait Database {
 
-    public function connect()
+    public static function connect()
     {
         $db = new \PDO('mysql:host=localhost;dbname=wdd318;charset=utf8',
             'homestead', 'secret');

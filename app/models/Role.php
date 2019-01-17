@@ -17,14 +17,22 @@ class Role
 
     use Database;
 
-    public function getAll()
+    public static function getAll()
     {
-
         $sql = 'SELECT id, value FROM roles';
-        $db = $this->connect();
+        $db = Database::connect();
         $stmt = $db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, Roles::class);
+    }
+
+    public static function getRoleNameById($id)
+    {
+        $sql = 'SELECT value FROM roles WHERE id = :id';
+        $db = Database::connect();
+        $stmt = $db->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return ucfirst($stmt->fetch(\PDO::FETCH_ASSOC)['value']);
     }
 
     public function buildConstants()

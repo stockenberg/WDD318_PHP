@@ -27,6 +27,8 @@ class App
      */
     public function run()
     {
+
+
         /*
          * Comfort Feature to have Constants by the Name of the Roles
          * e.g. ADMIN = 1, AUTHOR = 2, USER = 3
@@ -54,6 +56,13 @@ class App
     {
         header('Location: ?p=' . $page);
         exit();
+    }
+
+    public static function redirectToAction($page, $action)
+    {
+        if(!isset($_GET['action'])){
+            App::redirect($page.'&action='.$action);
+        }
     }
 
     /**

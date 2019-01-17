@@ -24,7 +24,10 @@ class GetHelper implements GetHelperInterface
             'contact' => 'Contact Page',
             'login' => 'Login Page'
         ],
-        'logged_in' => ['manage_users' => 'User Management']
+        'logged_in' => [
+            'manage_users' => 'User Management',
+            'create_users' => 'Create a new User'
+        ]
     ];
     const ERROR_PAGE = "404";
     const PATH = "pages/";
