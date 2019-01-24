@@ -32,7 +32,7 @@ class Auth
                 // 4. write into session logged in = true
                 $_SESSION['auth']['id'] = $user->getId();
                 $_SESSION['auth']['username'] = $user->getUsername();
-                $_SESSION['auth']['role_id'] = $user->getRolesId();
+                $_SESSION['auth']['role_id'] = $user->getRoleId();
                 $_SESSION['auth']['email'] = $user->getEmail();
                 return true;
             }

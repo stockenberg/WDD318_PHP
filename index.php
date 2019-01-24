@@ -8,9 +8,7 @@
 
 require_once "vendor/autoload.php";
 
-// TODO : find a better spot for it
-session_name('wdd318');
-session_start();
+\app\helpers\Session::init();
 
 
 $whoops = new Whoops\Run;
@@ -78,6 +76,7 @@ $app->run();
         </form>
     </div>
 </nav>
+<h1><?= \app\helpers\Session::flash('feedback') ?></h1>
 <?php \Kint\Kint::dump($_GET, $_POST, $_SESSION); ?>
 <main role="main" class="container">
     <div class="row">

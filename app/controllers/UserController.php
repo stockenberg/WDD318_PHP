@@ -12,6 +12,7 @@ namespace app\controllers;
 use app\App;
 use app\dtos\Users;
 use app\helpers\Security;
+use app\helpers\Session;
 use app\helpers\Status;
 use app\models\User;
 
@@ -20,18 +21,44 @@ class UserController
 
     public function run()
     {
+
         Security::allow([ADMIN, AUTHOR]);
+
         switch ($_GET['action'] ?? null) {
 
             // do stuff
 
-            case 'create':
+            case 'update':
 
-              break;
+                /** @var Users|bool $userObj */
+                $userObj = $this->validate($_POST ?? []);
+                if ($userObj) {
+                    $user = new User();
+
+                    if ($user->update($userObj, $_GET['id'])) {
+                        Session::setFlash('feedback', 'Der User wurde erfolgreich verändert');
+
+                        App::redirect('manage_users');
+                    }
+                }
+                break;
+
+            case 'edit':
+                $user = new User();
+                $data = $user->getUserById($_GET['id']);
+
+                if(!is_null($data)){
+                    return $data;
+                }else{
+                    App::redirect('manage_users');
+                }
+
+                break;
 
             case 'delete':
                 $user = new User();
-                if($user->destroy($_GET['id'])){
+                if ($user->destroy($_GET['id'])) {
+                    Session::setFlash('feedback', 'Der User wurde gelöscht');
                     App::redirect('manage_users');
                 }
                 break;
@@ -45,6 +72,8 @@ class UserController
                     $user = new \app\models\User();
 
                     if ($user->save($userObj)) {
+                        Session::setFlash('feedback', 'Der User wurde erfolgreich erstellt');
+
                         App::redirect('manage_users');
                     }
                 }
@@ -91,26 +120,27 @@ class UserController
             }
 
             if ($post['email'] !== '') {
-                if(filter_var($post['email'], FILTER_VALIDATE_EMAIL)){
+                if (filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
                     $user->setEmail($post['email']);
-                }else{
+                } else {
                     Status::setStatus('email', 'Deine E-Mail-Adresse ist nicht korrekt');
                 }
             } else {
                 Status::setStatus('email', 'Bitte fülle deine Email-Adresse aus');
             }
-
-            if($post['password'] !== '' AND $post['password_retyped'] !== ''){
-                if($post['password'] === $post['password_retyped']){
-                    $user->setPassword($post['password']);
-                }else{
-                    Status::setStatus('password', 'Deine Passwörter stimmen nicht überein');
+            if (isset($post['password'])) {
+                if ($post['password'] !== '' AND $post['password_retyped'] !== '') {
+                    if ($post['password'] === $post['password_retyped']) {
+                        $user->setPassword($post['password']);
+                    } else {
+                        Status::setStatus('password', 'Deine Passwörter stimmen nicht überein');
+                    }
+                } else {
+                    Status::setStatus('password', 'Bitte gib dein Passwort erneut ein');
                 }
-            }else{
-                Status::setStatus('password', 'Bitte gib dein Passwort erneut ein');
             }
 
-            if ($post['role_id']!== '') {
+            if ($post['role_id'] !== '') {
                 $user->setRoleId($post['role_id']);
             } else {
                 Status::setStatus('role_id', 'Bitte wähle eine Rechtestufe');

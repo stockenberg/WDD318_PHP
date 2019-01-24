@@ -1,0 +1,87 @@
+## -> Florian
+
+Blog
+ 	- Beiträge Verwaltung
+	- Kategorien
+	- (Suche)
+	- Post nach Datum publishen
+
+Login
+	- multiple rights 
+	- Admin, Author|editor
+
+Newsletter
+    - opt in
+    - opt out
+    - Mail geht an Alle user raus
+    
+-----------------------------------------------------------------------------------------
+
+## -> Leon
+
+Projektmanagement
+
+Login
+Registrieren (Auf einladung)
+
+Suche
+Projekte anlegen
+	lesen, löschen editieren
+
+Zuweisung der Leute auf Projekte
+Auslastung der einzelnen Leute sehen
+Urlaub und Krankheit
+Projekte haben Kommentare und können Sortiert werden
+
+------------------------------------------------------------------------------------------
+
+## -> Enky
+
+Fotos, Videos, Textbeiträge teilen
+Stream an Posts für jeden User
+Posts werden Bewertet 1-5
+Jeder USer kann seine Beiträge verwalten
+Kann Beiträgefavorisieren
+Favoritenliste aufrufbar
+|----------------------|
+|----------------------|
+
+|----------------------|
+|		       |
+|		       |
+|		       |
+|----------------------|
+Message
+
++Foto +Video
+
+
+Profilseite mit eigenen Uploads durch andere User einsehbar
+
+---------------------------------------------------------------------------------------------
+
+
+## -> Sarah
+
+Blog
+
+Beiträge generieren
+Bild oder Text material
+Login über feste Url
+Admins & Authoren
+Beiträge können kategorisiert werden 
+Kategorien können erstellt werden -> 1 - n
+
+Beiträge sind über die Authoren einsehbar
+Beiträge sind über die Kategorien einsehbar
+
+Authoren
+	Beiträge Crud
+
+Admins
+	Authoren Crud
+
+All
+	Timings, wann wird der Beitrag live gehen
+
+Kommentare

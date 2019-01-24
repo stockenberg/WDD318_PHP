@@ -26,7 +26,8 @@ class GetHelper implements GetHelperInterface
         ],
         'logged_in' => [
             'manage_users' => 'User Management',
-            'create_users' => 'Create a new User'
+            'create_users' => 'Create a new User',
+            'edit_users' => 'Update a User'
         ]
     ];
     const ERROR_PAGE = "404";

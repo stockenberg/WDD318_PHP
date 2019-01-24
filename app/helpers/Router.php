@@ -42,6 +42,11 @@ class Router
                 return $user->run();
                 break;
 
+            case 'edit_users':
+                $user = new UserController();
+                return $user->run();
+                break;
+
             case 'login':
                 $login = new LoginController();
                 return $login->run();

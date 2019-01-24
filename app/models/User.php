@@ -14,6 +14,8 @@ use app\traits\Database;
 class User
 {
 
+    use Database;
+
     public static $inputFields = [
         'username' => ['type' => 'text', 'label' => 'Benutzername'],
         'firstname' => ['type' => 'text', 'label' => 'Vorname'],
@@ -23,7 +25,47 @@ class User
         'password_retyped' => ['type' => 'password', 'label' => 'Passwort erneut eingeben']
     ];
 
-    use Database;
+    public static $editInputFields = [
+        'username' => ['type' => 'text', 'label' => 'Benutzername'],
+        'firstname' => ['type' => 'text', 'label' => 'Vorname'],
+        'lastname' => ['type' => 'text', 'label' => 'Nachname'],
+        'email' => ['type' => 'email', 'label' => 'E-Mail-Adresse'],
+    ];
+
+    public function getUserById($id)
+    {
+        $sql = 'SELECT id, username, email, firstname, 
+                      lastname, role_id, created_at, updated_at 
+                FROM users 
+                WHERE id = :id AND id != 2';
+
+        $data = Database::getAsObj($sql, Users::class, [':id' => $id]);
+
+        if($data){
+            return $data;
+        }
+
+        return null;
+    }
+
+    public function update(Users $user, int $id) : bool
+    {
+
+        $sql = 'UPDATE users 
+                SET firstname = :firstname, lastname = :lastname, 
+                    email = :email, username = :username, role_id = :role_id WHERE id = :id';
+
+        $execArr = [
+            ':firstname' => $user->getFirstname(),
+            ':lastname' => $user->getLastname(),
+            ':email' => $user->getEmail(),
+            ':username' => $user->getUsername(),
+            ':role_id' => $user->getRoleId(),
+            ':id' => $id,
+        ];
+
+        return Database::set($sql, $execArr);
+    }
 
     public function save(Users $user) : bool
     {

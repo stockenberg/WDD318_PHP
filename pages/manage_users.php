@@ -1,7 +1,7 @@
 
 <div class="col-md-12">
     <div class="bgc-white bd bdrs-3 p-20 mB-20"><h4 class="c-grey-900 mB-20">User Management</h4>
-        <a href="" class="btn btn-success"><i class="fas fa-plus"></i> Add new User</a>
+        <a href="?p=create_users" class="btn btn-success"><i class="fas fa-plus"></i> Add new User</a>
         <table class="table table-bordered mt-3">
             <thead>
             <tr>
@@ -30,8 +30,8 @@
                 <td><?= $user->getRole() ?></td>
                 <td><?= $user->getCreatedAt() ?></td>
                 <td>
-                    <a href="?p=manage_users&action=edit&id=<?= $user->getId() ?>" type="button" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                    <a href="?p=manage_users&action=delete&id=<?= $user->getId() ?>" type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                    <a href="?p=edit_users&action=edit&id=<?= $user->getId() ?>" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                    <a href="?p=manage_users&action=delete&id=<?= $user->getId() ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             <?php endforeach; ?>
