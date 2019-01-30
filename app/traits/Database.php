@@ -25,6 +25,14 @@ trait Database {
         return $stmt->fetchAll(\PDO::FETCH_CLASS, $FQCN);
     }
 
+    public static function getAsArray($sql, $execArray = [])
+    {
+        $db = Database::connect();
+        $stmt = $db->prepare($sql);
+        $stmt->execute($execArray);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public static function getAsObj($sql, $FQCN, $execArray = [])
     {
         $db = Database::connect();
