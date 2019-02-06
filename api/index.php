@@ -14,3 +14,18 @@ switch ($_GET['ressource']) {
         $productController->run();
         break;
 }
+
+
+/*
+Need:
+ID, URL
+
+JavaScript Functions
+JavaScript
+    -> onclick
+
+
+PHP Functions
+Model -> SQL
+
+*/

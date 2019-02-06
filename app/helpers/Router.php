@@ -27,31 +27,28 @@ class Router
                 return $home->run();
                 break;
 
+            case 'manage_products':
+                JSHelper::set($_GET['p'], 'products');
+                break;
+
             case 'contact':
                 $contact = new ContactController();
                 $contact->run();
                 break;
 
-            case 'manage_users':
-                $user = new UserController();
-                return $user->run();
-                break;
 
+            case 'manage_users':
+            case 'edit_users':
             case 'create_users':
                 $user = new UserController();
                 return $user->run();
                 break;
 
-            case 'edit_users':
-                $user = new UserController();
-                return $user->run();
-                break;
-
+            case 'pw_reset':
             case 'login':
                 $login = new LoginController();
                 return $login->run();
                 break;
-
 
         }
     }

@@ -48,6 +48,21 @@ class User
         return null;
     }
 
+    public function getUserByEmail($email)
+    {
+        $sql = 'SELECT id
+                FROM users 
+                WHERE email = :email';
+
+        $data = Database::getAsObj($sql, Users::class, [':email' => $email]);
+
+        if($data){
+            return $data;
+        }
+
+        return null;
+    }
+
     public function update(Users $user, int $id) : bool
     {
 

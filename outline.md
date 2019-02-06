@@ -13,7 +13,7 @@ Seiten
 
 Login
 Register
-Passwort vergessen ? 
+Wichtig -> Passwort vergessen ? 
 
 
 - Fragestellung: 

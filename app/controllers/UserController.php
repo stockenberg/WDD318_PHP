@@ -44,6 +44,7 @@ class UserController
                 break;
 
             case 'edit':
+
                 $user = new User();
                 $data = $user->getUserById($_GET['id']);
 

@@ -28,6 +28,7 @@ $app->run();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--     BUG : check local asset loading - wtf.. -->
     <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
@@ -42,7 +43,11 @@ $app->run();
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
 
-            <?php foreach (\app\helpers\GetHelper::WHITE_LIST['public'] as $param => $niceName) : ?>
+            <?php foreach (\app\helpers\GetHelper::WHITE_LIST['public'] as $param => $niceName) :
+                if($param === 'pw_reset' || $param === 'login'){
+                    continue;
+                }
+                ?>
                 <li class="nav-item <?= (($_GET['p'] ?? null) === $param) ? 'active' : '' ?>">
                     <a class="nav-link" href="?p=<?= $param ?>"><?= $niceName ?></a>
                 </li>
@@ -88,6 +93,9 @@ $app->run();
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 <script src="assets/js/app.js"></script>
+<?= \app\helpers\JSHelper::render($_GET['p']); ?>
+
 </body>
 </html>

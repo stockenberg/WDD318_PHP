@@ -11,3 +11,5 @@
 
     <button type="submit">Submit</button>
 </form>
+
+<a href="?p=pw_reset">Passwort vergessen?</a>

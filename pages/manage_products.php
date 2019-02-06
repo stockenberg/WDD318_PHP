@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <h2>Add new Product</h2>
-    <form action="#banane" id="productForm">
+    <form id="productForm">
 
         <div class="form-group">
             <label for="">title</label>

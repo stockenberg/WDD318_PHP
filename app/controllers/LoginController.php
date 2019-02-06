@@ -14,6 +14,7 @@ use app\dtos\Auth;
 use app\dtos\Users;
 use app\helpers\Security;
 use app\helpers\Status;
+use app\models\User;
 
 class LoginController
 {
@@ -31,6 +32,18 @@ class LoginController
 
                 session_destroy();
                 App::redirect('home');
+                break;
+
+            case 'sendMail':
+                $user = new User();
+                $match = $user->getUserByEmail($_POST['email']);
+                $match->setEmail($_POST['email']);
+
+                if(!is_null($match)){
+                    $hash = md5($match->getId() . $match->getEmail() . time());
+                    echo $hash;
+                }
+                echo "no user found";
                 break;
 
             case 'login':

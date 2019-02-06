@@ -37,9 +37,34 @@ class ProductController
 
                 break;
 
+            case 'delete':
+                $product = new Product();
+                if($product->destroy($_GET['id'])){
+                    echo json_encode(['status' => 200, 'message'     => 'product was deleted']);
+                }
+                break;
+
             case 'get':
                 $product = new \app\models\Product();
                 echo json_encode($product->getAllProducts());
+                break;
+
+            case 'edit':
+
+                $product = new Products();
+                $product->setTitle($_POST['title']);
+                $product->setDescription($_POST['description']);
+                $product->setId($_POST['id']);
+
+                $model = new Product();
+                if($model->updateData($product)){
+                    echo json_encode([
+                        'status' => 200,
+                        'message' => 'product edited'
+                    ]);
+
+                }
+
                 break;
         }
 

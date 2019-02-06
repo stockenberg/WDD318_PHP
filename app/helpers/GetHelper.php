@@ -22,7 +22,8 @@ class GetHelper implements GetHelperInterface
             'about' => 'About Page',
             'home' => 'Home Page',
             'contact' => 'Contact Page',
-            'login' => 'Login Page'
+            'login' => 'Login Page',
+            'pw_reset' => ''
         ],
         'logged_in' => [
             'manage_users' => 'User Management',
