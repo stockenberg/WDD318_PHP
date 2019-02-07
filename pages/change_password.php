@@ -22,3 +22,5 @@
         <li>mind. ein Sonderzeichen</li>
     </ul>
 </div>
+
+<h2>LINK: http://wdd318.test/?p=change_password&action=change_password&hash=EUER_HASH</h2>
