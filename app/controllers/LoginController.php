@@ -12,9 +12,11 @@ namespace app\controllers;
 use app\App;
 use app\dtos\Auth;
 use app\dtos\Users;
+use app\helpers\Mailer;
 use app\helpers\Security;
 use app\helpers\Status;
 use app\models\User;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class LoginController
 {
@@ -34,14 +36,27 @@ class LoginController
                 App::redirect('home');
                 break;
 
+            case 'change_password':
+                $regexp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
+                // validate password  
+                // check password against regexp
+                // reset password in database
+                // return user to login form
+                // message user -> change of password is done
+                break;
+
             case 'sendMail':
                 $user = new User();
                 $match = $user->getUserByEmail($_POST['email']);
-                $match->setEmail($_POST['email']);
-
                 if(!is_null($match)){
+                    $match->setEmail($_POST['email']);
                     $hash = md5($match->getId() . $match->getEmail() . time());
-                    echo $hash;
+                    $userModel = new User();
+                    if($userModel->savePasswordResetHash($match, $hash)){
+                        $mailContent = [$match, $hash];
+                        Mailer::sendPasswordResetMail($mailContent);
+                        return true;
+                    }
                 }
                 echo "no user found";
                 break;

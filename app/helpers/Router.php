@@ -46,6 +46,7 @@ class Router
 
             case 'pw_reset':
             case 'login':
+            case 'change_password':
                 $login = new LoginController();
                 return $login->run();
                 break;

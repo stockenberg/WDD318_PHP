@@ -44,7 +44,7 @@ $app->run();
         <ul class="navbar-nav mr-auto">
 
             <?php foreach (\app\helpers\GetHelper::WHITE_LIST['public'] as $param => $niceName) :
-                if($param === 'pw_reset' || $param === 'login'){
+                if(in_array($param, ['login', 'pw_reset', 'change_password'])){
                     continue;
                 }
                 ?>
@@ -95,7 +95,7 @@ $app->run();
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
 <script src="assets/js/app.js"></script>
-<?= \app\helpers\JSHelper::render($_GET['p']); ?>
+<?= \app\helpers\JSHelper::render($_GET['p'] ?? ''); ?>
 
 </body>
 </html>

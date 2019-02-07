@@ -48,6 +48,19 @@ class User
         return null;
     }
 
+    /**
+     * @param Users $users
+     * @param String $hash
+     * @return bool
+     */
+    public function savePasswordResetHash(Users $users, String $hash)
+    {
+
+        $sql = 'INSERT INTO password_resets (user_id, reset_hash) VALUES (:user_id, :reset_hash)';
+        $execArr = [':user_id' => $users->getId(), ':reset_hash' => $hash];
+        return Database::set($sql, $execArr);
+    }
+
     public function getUserByEmail($email)
     {
         $sql = 'SELECT id
