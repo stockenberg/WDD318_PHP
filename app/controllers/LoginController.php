@@ -38,7 +38,7 @@ class LoginController
 
             case 'change_password':
                 $regexp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$";
-                // validate password  
+                // validate password
                 // check password against regexp
                 // reset password in database
                 // return user to login form
