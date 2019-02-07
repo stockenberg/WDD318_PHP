@@ -43,6 +43,7 @@ class LoginController
                 // reset password in database
                 // return user to login form
                 // message user -> change of password is done
+                // delete used hash
                 break;
 
             case 'sendMail':

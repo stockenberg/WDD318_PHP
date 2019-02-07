@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7ab971f-aefb-4a0f-b22e-6f132ad0276c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pages/change_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/change_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/LoginController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,10 +73,13 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/change_password.php">
+        <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+            <state relative-caret-position="546">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+              <folding>
+                <element signature="e#122#134#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,8 +177,8 @@
         <option value="$PROJECT_DIR$/app/helpers/Router.php" />
         <option value="$PROJECT_DIR$/app/helpers/Mailer.php" />
         <option value="$PROJECT_DIR$/assets/js/products.js" />
-        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
         <option value="$PROJECT_DIR$/pages/change_password.php" />
+        <option value="$PROJECT_DIR$/app/controllers/LoginController.php" />
       </list>
     </option>
   </component>
@@ -344,12 +347,12 @@
       <workItem from="1549106872223" duration="2120000" />
       <workItem from="1549274115604" duration="32000" />
       <workItem from="1549459584847" duration="3342000" />
-      <workItem from="1549542942334" duration="5869000" />
+      <workItem from="1549542942334" duration="7027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93785000" />
+    <option name="totallyTimeSpent" value="94943000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,7 +390,7 @@
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Remote Host" order="4" />
-      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.1890625" />
+      <window_info anchor="right" id="Database" order="5" visible="true" weight="0.063541666" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13177083" />
@@ -737,16 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#122#134#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://2c9a77f9-4935-468e-9c9d-c9713f0392a0/schema/wdd318/table/users">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -784,8 +777,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/change_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
+        <state relative-caret-position="1050">
           <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+          <folding>
+            <element signature="e#122#134#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
