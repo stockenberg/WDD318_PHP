@@ -31,7 +31,6 @@ class LoginController
         switch ($_GET['action'] ?? null){
 
             case 'logout':
-
                 session_destroy();
                 App::redirect('home');
                 break;
@@ -44,6 +43,7 @@ class LoginController
                 // return user to login form
                 // message user -> change of password is done
                 // delete used hash
+
                 break;
 
             case 'sendMail':

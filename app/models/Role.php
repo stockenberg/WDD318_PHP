@@ -37,6 +37,7 @@ class Role
 
     public function buildConstants()
     {
+
         $data = $this->getAll();
         /**
          * @var Roles $role

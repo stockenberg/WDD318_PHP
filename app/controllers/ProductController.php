@@ -9,7 +9,9 @@
 namespace app\controllers;
 
 
+use app\App;
 use app\dtos\Products;
+use app\helpers\Session;
 use app\models\Product;
 
 class ProductController
@@ -45,8 +47,25 @@ class ProductController
                 break;
 
             case 'get':
-                $product = new \app\models\Product();
+                $product = new Product();
                 echo json_encode($product->getAllProducts());
+                break;
+
+            case 'all':
+                $product = new Product();
+                return $product->getAllProductsAsObj();
+                break;
+
+            case 'addToCart':
+                $productModel = new Product();
+                $product = $productModel->getProductById($_GET['id']);
+
+                Session::addToCart($product);
+                App::redirectToAction('products', 'all');
+
+
+                // Get Product
+                // add Product to Session
                 break;
 
             case 'edit':

@@ -34,4 +34,14 @@ class Session
         return null;
     }
 
+    public static function addToCart($item)
+    {
+        $_SESSION['cart'][] = $item;
+    }
+
+    public static function cart()
+    {
+        return $_SESSION['cart'] ?? null;
+    }
+
 }

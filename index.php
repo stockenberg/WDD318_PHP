@@ -18,6 +18,7 @@ $whoops->register();
 $app = new \app\App();
 $app->run();
 
+
 ?>
 <!doctype html>
 <html lang="en">

@@ -60,7 +60,7 @@ class App
 
     public static function redirectToAction($page, $action)
     {
-        if(!isset($_GET['action'])){
+        if(isset($_GET['action'])){
             App::redirect($page.'&action='.$action);
         }
     }

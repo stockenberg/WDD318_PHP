@@ -13,6 +13,7 @@ use app\App;
 use app\controllers\ContactController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
+use app\controllers\ProductController;
 use app\controllers\UserController;
 
 class Router
@@ -49,6 +50,11 @@ class Router
             case 'change_password':
                 $login = new LoginController();
                 return $login->run();
+                break;
+
+            case 'products':
+                $product = new ProductController();
+                return $product->run();
                 break;
 
         }

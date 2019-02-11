@@ -25,6 +25,18 @@ class Product
         return Database::getAsArray($sql);
     }
 
+    public function getProductById($id)
+    {
+        $sql = 'SELECT * FROM products WHERE id = :id';
+        return Database::getAsObj($sql, Products::class, [':id' => $id]);
+    }
+
+    public function getAllProductsAsObj()
+    {
+        $sql = 'SELECT * FROM products ORDER BY id DESC';
+        return Database::getAsObjArr($sql, Products::class);
+    }
+
     /**
      * Deletes a Product
      * @param $id

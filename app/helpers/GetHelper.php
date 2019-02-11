@@ -24,7 +24,9 @@ class GetHelper implements GetHelperInterface
             'contact' => 'Contact Page',
             'login' => 'Login Page',
             'pw_reset' => '',
-            'change_password' => ''
+            'change_password' => '',
+            'products' => 'Alle Produkte',
+            'cart' => 'Warenkorb'
         ],
         'logged_in' => [
             'manage_users' => 'User Management',
