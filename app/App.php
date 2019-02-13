@@ -27,8 +27,6 @@ class App
      */
     public function run()
     {
-
-
         /*
          * Comfort Feature to have Constants by the Name of the Roles
          * e.g. ADMIN = 1, AUTHOR = 2, USER = 3
@@ -36,11 +34,19 @@ class App
         $roleModel = new Role();
         $roleModel->buildConstants();
 
+        /* you can do:
+               $test = new Test();
+               $test->func()
+               === or:
+               $res = (new Test())->func();
+           */
+
+
         /*
          * Get the Valid Page from URL
          */
         $this->pageName = GetHelper::getValidatedPage($_GET['p'] ?? null);
-
+        
         /*
          * Redirects the Get request to Controllers and returns data to the app if data exists
          */

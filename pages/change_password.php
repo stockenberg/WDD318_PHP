@@ -1,15 +1,15 @@
 
-<form action="" class="col">
+<form method="post" action="?p=change_password&action=replace_password&user_id=<?= $app->data[0]->getUserId(); ?>&hash=<?= $app->data[0]->getResetHash() ?>" class="col">
     <div class="form-group">
         <label for="pass">Neues Passwort</label>
-        <input type="text" name="pw" class="form-control">
+        <input type="password" name="pw" class="form-control">
     </div>
 
     <div class="form-group">
         <label for="retype">Password Wiederholen</label>
-        <input type="text" name="pw_retype" class="form-control">
+        <input type="password" name="pw_retype" class="form-control">
     </div>
-
+    <p class="error"><?= \app\helpers\Status::getStatus('pw') ?></p>
     <button type="submit">Speichern / Updaten</button>
 </form>
 

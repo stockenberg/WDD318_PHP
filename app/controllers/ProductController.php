@@ -51,7 +51,9 @@ class ProductController
                 echo json_encode($product->getAllProducts());
                 break;
 
+
             case 'all':
+            default:
                 $product = new Product();
                 return $product->getAllProductsAsObj();
                 break;
@@ -63,9 +65,6 @@ class ProductController
                 Session::addToCart($product);
                 App::redirectToAction('products', 'all');
 
-
-                // Get Product
-                // add Product to Session
                 break;
 
             case 'edit':

@@ -11,6 +11,7 @@ namespace app\models;
 
 use app\dtos\Users;
 use app\traits\Database;
+use app\dtos\PasswordResets;
 
 class Auth
 {
@@ -38,6 +39,27 @@ class Auth
             }
         }
         return false;
+    }
+
+    public function replacePassword(Users $user)
+    {
+        $sql = 'UPDATE users SET password = :password WHERE id = :id';
+        $execArr = [':id' => $user->getId(), ':password' => $user->getPassword()];
+        if(Database::set($sql, $execArr)){
+            // delete from ps_resets
+            $sql = 'DELETE FROM password_resets WHERE user_id = :id';
+            $execArr = [':id' => $user->getId()];
+            return Database::set($sql, $execArr);
+        }
+        return false;
+    }
+
+    public function getPWResetHash(PasswordResets $pwreset)
+    {
+        $sql = 'SELECT * FROM password_resets WHERE reset_hash = :hash';
+
+        $execArr = [':hash' => $pwreset->getResetHash()];
+        return Database::getAsObjArr($sql, PasswordResets::class, $execArr);
     }
 
     private function getUserByUsername(String $username)

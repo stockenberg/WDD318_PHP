@@ -9,6 +9,8 @@
 namespace app\helpers;
 
 
+use app\App;
+use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class Mailer
@@ -19,6 +21,7 @@ class Mailer
     {
         //print_r($data);
         $mail = new PHPMailer();
+
         try {
             
             // $mail->SMTPDebug = 2;
@@ -32,7 +35,7 @@ class Mailer
 
             $mail->CharSet = 'UTF-8';
             
-            $mail->setFrom('norepy@supersystem.de', 'Password Reset Mailer');
+            $mail->setFrom('noreply@supersystem.de', 'Password Reset Mailer');
             $mail->addAddress($data[0]->getEmail());
 
             $mail->isHTML(true);                                  
