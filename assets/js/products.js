@@ -10,7 +10,7 @@ productSubmit.onclick = function (e) {
 
 
     $.ajax({
-        url: 'http://wdd318.test/api/?ressource=products&action=store',
+        url: 'http://wdd318.local/api/?ressource=products&action=store',
         method: 'POST',
         data: {
             title: title.value,
@@ -27,6 +27,7 @@ productSubmit.onclick = function (e) {
                 color: 'green'
             });
             getProducts();
+            /* Reset inputs */
             title.value = null;
             description.value = null;
         } else {
@@ -56,7 +57,7 @@ getProducts();
 
 
 function getProducts() {
-    let myRequest = axios.get('http://wdd318.test/api?ressource=products&action=get')
+    let myRequest = axios.get('http://wdd318.local/api?ressource=products&action=get')
         .then(res => {
             console.log(res);
             buildProductTable(res.data)
@@ -68,7 +69,7 @@ function getProducts() {
 
 function deleteProductById(e) {
     console.log(e.preventDefault());
-    axios.get('http://wdd318.test/api/?ressource=products&action=delete&id=' + e.target.dataset.id)
+    axios.get('http://wdd318.local/api/?ressource=products&action=delete&id=' + e.target.dataset.id)
         .then(res => {
             console.log(res);
             getProducts();
@@ -83,24 +84,25 @@ function deleteProductById(e) {
         })
 }
 
+
 function editProductById(e) {
     let trToEdit = e.target.parentElement.parentElement;
     console.log(trToEdit);
     console.log(trToEdit.children);
 
+    /* Convert table data to input fields - to edit... */
     for (let i = 1; i < 3; i++) {
         let text = trToEdit.children[i].innerText;
         trToEdit.children[i].innerHTML = `<input class="form-control" value="${text}">`;
     }
 
     let editBox = trToEdit.children[trToEdit.children.length - 1];
-    console.log(editBox);
     let editBoxContent = editBox.children;
-
-    console.log(editBoxContent);
 
     editBoxContent[0].className = 'btn btn-warning';
     editBoxContent[0].innerHTML = 'Abbrechen';
+    editBoxContent[0].onclick = cancleEditState;
+
     // TODO - click event on edit issue - icon is select if e.target is called
     editBoxContent[1].className = 'btn btn-success';
     editBoxContent[1].innerHTML = 'Speichern';
@@ -108,7 +110,6 @@ function editProductById(e) {
 
     //aSave.dataset.id = data[i].id;
     // aSave.onclick = editProductById;
-    editBoxContent[0].onclick = cancleEditState
 
     function update (){
 
@@ -118,11 +119,12 @@ function editProductById(e) {
         productData.id = this.dataset.id;
 
         $.ajax({
-            url: 'http://wdd318.test/api/?ressource=products&action=edit&id=' +  productData.id,
+            url: 'http://wdd318.local/api/?ressource=products&action=edit&id=' +  productData.id,
             method: 'POST',
             data: productData
         }).then(res => {
             getProducts();
+            // BUG : res.data.message === undefined ? toast is not showing up..
             iziToast.show({
                 title: 'Updated',
                 message: res.data.message,
@@ -140,7 +142,7 @@ function editProductById(e) {
 
         this.className = 'btn btn-danger';
         this.innerHTML = 'Mülltonne';
-        this.onclick = deleteProductById
+        this.onclick = deleteProductById;
 
         editBoxContent[1].className = 'btn btn-primary';
         editBoxContent[1].innerHTML = 'Editieren';

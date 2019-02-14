@@ -60,6 +60,7 @@ class Product
         return Database::set($sql, $execArr);
     }
 
+
     public function updateData (Products $products) {
         $sql = 'UPDATE products SET title = :title, description = :description WHERE id = :id';
         $execArr = [

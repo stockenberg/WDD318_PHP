@@ -11,7 +11,7 @@ namespace app\helpers;
 
 class JSHelper
 {
-    public static $arr = [];
+    private static $arr = [];
 
 
     public static function set($page, $scripts)
@@ -19,10 +19,6 @@ class JSHelper
         self::$arr[$page][] = $scripts;
     }
 
-    public static function get($page)
-    {
-        return self::$arr[$page];
-    }
 
     public static function render($currentPage)
     {

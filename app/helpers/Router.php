@@ -11,6 +11,7 @@ namespace app\helpers;
 
 use app\App;
 use app\controllers\ContactController;
+use app\controllers\FileController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
 use app\controllers\ProductController;
@@ -37,6 +38,10 @@ class Router
                 $contact->run();
                 break;
 
+            case 'filemanager':
+                $file = new FileController();
+                $file->run();
+                break;
 
             case 'manage_users':
             case 'edit_users':

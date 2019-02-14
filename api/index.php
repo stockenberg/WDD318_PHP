@@ -15,17 +15,3 @@ switch ($_GET['ressource']) {
         break;
 }
 
-
-/*
-Need:
-ID, URL
-
-JavaScript Functions
-JavaScript
-    -> onclick
-
-
-PHP Functions
-Model -> SQL
-
-*/

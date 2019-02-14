@@ -21,7 +21,9 @@ class ProductController
 
         switch ($_GET['action'] ?? ''){
             case 'store':
+
                 $err = $this->validate($_POST);
+
                 if(count($err) > 0){
                     echo json_encode(['status' => '422', 'message' => $err]);
                     return;
